@@ -88,6 +88,7 @@ def convert(filename):
     no_extension = filename.split(".")[0]
 
     os.environ['TESSDATA_PREFIX'] = 'models/' 
+
     with open(no_extension + ".txt", "w+") as f:
         if ft == "pdf":
             f.write(getPDFcontent(filename)) 
@@ -109,5 +110,5 @@ if __name__ == "__main__":
     d = "Week2.docx"
     convert(d)
 
-    pg = "img2.jpg"
+    pg = "img.png"
     convert(pg)
