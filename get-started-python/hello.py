@@ -64,7 +64,7 @@ def fetch_pdf():
         return fc.getPDFcontent(f.filename)
 
 
-@app.route('translate', methods=['POST'])
+@app.route('/translate', methods=['POST'])
 def translate():
     if request.method == "POST":
         f = request.files['file']
