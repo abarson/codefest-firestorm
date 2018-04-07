@@ -8,7 +8,7 @@ Created on Sat Apr  7 17:08:46 2018
 
 from collections import Counter
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from watson_apis import NaturalLanguageUnderstanding  
 import json
 
@@ -52,7 +52,7 @@ def avg_length(string):
     average = 0
     for i in count:
         average += i
-    average = average/len(count)
+    average = average / len(count)
     return average
 
 
@@ -95,14 +95,45 @@ def natural_lang_understanding(string):
     """
 
     nlu = NaturalLanguageUnderstanding()
-    jdump = nlu.analyze_nl(string)
+    jdump = json.loads(nlu.analyze_nl(string))
+    
+    kw = jdump['keywords']
 
-    print(jdump)
+    avg_sadness = 0.
+    avg_joy = 0.
+    avg_fear = 0.
+    avg_disgust = 0.
+    avg_anger = 0.
+    
+    most_relevant_k = None
+    highest_relevance = -1.
 
+    for k in kw:
+
+        if k['relevance'] > highest_relevance:
+            most_relevant_k = k['text']
+            highest_relevance = k['relevance']
+
+        if 'emotion' in k:
+            avg_sadness += k['emotion']['sadness']
+            avg_joy += k['emotion']['joy']
+            avg_fear += k['emotion']['fear']
+            avg_disgust += k['emotion']['disgust']
+            avg_anger += k['emotion']['anger']
+    
+    sad_str = "Average Sadness Rating : % 0.2f" % avg_sadness / len(kw)
+    joy_str = "Average Joy Rating : % 0.2f" % avg_joy / len(kw)
+    disgust_str = "Average Disgust Rating : % 0.2f" % avg_disgust / len(kw)
+    anger_str = "Average Anger : %0.2f" % avg_anger / len(kw)
+    fear_str = "Average Fear : %0.2f" % avg_fear / len(kw)
+    
+    highest_relevance = 
+    return avg_sadness / len(kw), avg_joy / len(kw), avg_fear / len(kw), avg_disgust / len(kw), avg_anger / len(kw), highest_relevance, most_relevant_k
+           
 
 def analytics(string):
     return n_words(string), avg_length(string), most_common(string), n_unique_words(string)
 
 
-natural_lang_understanding(test)
-length_freq_plot(test)
+# natural_lang_understanding(test)
+# length_freq_plot(test)
