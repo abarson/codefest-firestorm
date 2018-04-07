@@ -8,7 +8,7 @@ Created on Sat Apr  7 17:08:46 2018
 
 from collections import Counter
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from watson_apis import NaturalLanguageUnderstanding  
 import json
 
