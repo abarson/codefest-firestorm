@@ -69,6 +69,7 @@ def getPNGcontent(path):
 def get_tesseract_path():
     platforms = {"linux1": "Linux",
                  "linux2": "Linux",
+                 "linux": "Linux",
                  "darwin": "OS X"}
     
     exes = {"Linux": "models/tesseract_linux", "OS X": "models/tesseract_osx"}
