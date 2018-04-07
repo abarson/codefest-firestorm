@@ -5,7 +5,7 @@ from watson_developer_cloud.natural_language_understanding_v1 import Features, E
 import json
 
 
-class NaturalLanguagUnderstanding():
+class NaturalLanguageUnderstanding():
     def __init__(self):
         self.username = "a231076a-503e-4b98-a0bd-5f99637c240f"
         self.password = "ROksYqn7v48H"

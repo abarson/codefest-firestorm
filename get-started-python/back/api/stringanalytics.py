@@ -9,12 +9,16 @@ Created on Sat Apr  7 17:08:46 2018
 from collections import Counter
 import numpy as np
 import matplotlib.pyplot as plt
-from watson_apis 
+from watson_apis import NaturalLanguageUnderstanding  
+import json
+
 test = "By leveraging the power of IBM’s Watson, Study Buddy is a suite of tools for increasing study productivity. The main tools we provide are" 
+
 
 def n_words(string):
     return len(string.split(" "))
     
+
 def most_common(string):
     words = Counter()
     words.update(string.split())
@@ -32,7 +36,7 @@ def length_dist(string):
     words = string.split(" ")
     unique_lengths = sorted(list(set([len(word)for word in words])))
     
-    L2cts = {L:0 for L in unique_lengths}
+    L2cts = {L: 0 for L in unique_lengths}
     
     for word in words:
         L2cts[len(word)] += 1
@@ -40,6 +44,8 @@ def length_dist(string):
     counts = [L2cts[L] for L in unique_lengths]
     
     return unique_lengths, counts
+
+
 def avg_length(string):
     words = string.split(" ")
     count = [len(word)for word in words]
@@ -48,10 +54,14 @@ def avg_length(string):
         average += i
     average = average/len(count)
     return average
+
+
 def st_dev(string):
     words = string.split(" ")
     count = [len(word) for word in words]
     return np.std(count)
+
+
 def length_x_freq(string):
     freqs = Counter()
     freqs.update(string.split())
@@ -69,6 +79,7 @@ def length_dist_plot(string):
     plt.bar(l, nl)
     plt.savefig("len_dist_plot.png")
 
+
 def length_freq_plot(string):
     l, oc = length_x_freq(string)
     plt.title("Word Length by Frequency")
@@ -83,4 +94,14 @@ def natural_lang_understanding(string):
     the natural language understanding stats of the text
     """
 
-    
+    nlu = NaturalLanguageUnderstanding()
+    jdump = nlu.analyze_nl(string)
+
+    print(jdump)
+
+
+def analytics(string):
+    return n_words(string), avg_length(string), most_common(string), n_unique_words(string)
+
+
+natural_lang_understanding(test)

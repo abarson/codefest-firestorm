@@ -75,7 +75,6 @@ def translate():
         #out += "</div>"
 
 
-        return ""
         f = request.files['file']
         f.save(secure_filename(f.filename))
         text = fc.getPDFcontent(f.filename)
