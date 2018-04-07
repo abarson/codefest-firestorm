@@ -11,7 +11,12 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.stem.snowball import SnowballStemmer
 
-nltk.download('stopwords')
+
+try:
+    nltk.data.find("corpus/stopwords")
+
+except:
+    nltk.download('stopwords')
 
 STOP_WORDS = set(stopwords.words("english"))
 STEMMER = SnowballStemmer("english")
