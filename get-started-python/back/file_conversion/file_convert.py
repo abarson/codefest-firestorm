@@ -20,6 +20,9 @@ def get_filetype(filename):
     if filename.endswith(".pdf"):
         return "pdf"
 
+    if filename.endswith(".jpg"):
+        return "jpg"
+
 
 def getPDFcontent(path):
     """
@@ -55,9 +58,9 @@ def getDOCXcontent(path):
     return "\n".join(fullText)
 
 
-def getPNGcontent(path):
+def getIMGcontent(path):
     """
-    convert a png to plain text using pytesseract ocr model
+    convert a img to plain text using pytesseract ocr model
     """
     
     tess_path = get_tesseract_path()
@@ -92,10 +95,10 @@ def convert(filename):
         elif ft == "docx":
             f.write(getDOCXcontent(filename))
         
-        elif ft == "png":
+        elif ft == "png" or ft == "jpg":
             
-            f.write(getPNGcontent(filename))
-
+            f.write(getIMGcontent(filename))
+ 
 
 if __name__ == "__main__":
     p = "daniel_berenberg_224_hw7.pdf"
@@ -104,5 +107,5 @@ if __name__ == "__main__":
     d = "Week2.docx"
     convert(d)
 
-    pg = "img.png"
+    pg = "img2.jpg"
     convert(pg)
