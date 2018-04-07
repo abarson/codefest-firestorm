@@ -67,11 +67,20 @@ def fetch_pdf():
 @app.route('/translate', methods=['POST'])
 def translate():
     if request.method == "POST":
+        #out = "<!doctype html>\n"
+        #out += "<div id="backgroundTop">
+        
+        #out += "<div id=\"header\">StudyBuddy</div>\n"
+        #out += "<div id=\"description\"> A suite of tools for increasing study productivity </div><br>"
+        #out += "</div>"
+
+
+        return ""
         f = request.files['file']
         f.save(secure_filename(f.filename))
         text = fc.getPDFcontent(f.filename)
         translator = Translator()
-        json = translator.translate(text, 'es')
+        json = translator.translate(text, 'Spanish')
         return json['translations'][0]['translation']
 
         pass
@@ -83,8 +92,6 @@ def tone_analysis():
         pass
         #f =
 
-@app.route('/api', methods=['POST'])
-#def fetch
 
 
 # /* Endpoint to greet and add a new visitor to database.
