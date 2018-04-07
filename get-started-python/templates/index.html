@@ -15,9 +15,18 @@
   </div>
   <div id="content">
   <div id="uploadButton">
-    <button type="button" class="btn btn-outline-dark" onclick="upload()">Upload</button>
+    <button type="button" class="btn btn-outline-dark" onclick="translate()">Translate</button>
   </div>
-  <div id="upload"></div>
+  <div id="uploadButton">
+    <button type="button" class="btn btn-outline-dark" onclick="text2Speech()">Text2Speech</button>
+  </div>
+  <div id="uploadButton">
+    <button type="button" class="btn btn-outline-dark" onclick="toneAnalysis()">Tone Analysis</button>
+  </div>
+  <div id="uploadButton">
+    <button type="button" class="btn btn-outline-dark" onclick="textSummarization()">Text Summarization</button>
+  </div>
+  <div id="upload">upload spot</div>
   <div id="filetypes">(.png, .jpg, .pdf, .docx, .txt, .wav, .mp3)</div>
   <div id="uploadDescription">Select a file to upload to either translate, perform tone analysis, use text to speech, or create a text summary.</div>
   <br>
@@ -78,15 +87,30 @@
                         // getNames();
                     });
 		}
-</script>
-
-<script>	
-	function upload()
+	
+	function translate()
 	{
-		document.getElementById('upload').innerHTML = 
-		"<form action='/api' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br> <form action='/translate' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Translate'> </form><br>"
-		document.getElementById('uploadButton').innerHTML = ""
+		document.getElementById('upload').innerHTML = "<form action='/translate' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br> "
+		//document.getElementById('uploadButton').innerHTML = ""
 	}
+    
+    
+    function text2Speech()
+    {
+        document.getElementById('upload').innerHTML = "<form action='/text2speech' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Text2Speech'> </form><br>
+        //document.getElementById('uploadButton').innerHTML = ""
+    }
+    
+    function toneAnalysis() 
+    {
+        document.getElementById('upload').innerHTML = "<form action='/toneanalysis' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Tone Analysis'> </form><br>"
+        //document.getElementById('uploadButton').innerHTML = ""
+    }
+    function textSummarization() 
+    {
+        document.getElementById('upload').innerHTML = "<form action='/textsummary' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Text Summary'> </form><br>"
+        //document.getElementById('uploadButton').innerHTML = ""
+    }
     
     function reset()
     {
