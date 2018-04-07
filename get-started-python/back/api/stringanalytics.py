@@ -105,3 +105,4 @@ def analytics(string):
 
 
 natural_lang_understanding(test)
+length_freq_plot(test)
