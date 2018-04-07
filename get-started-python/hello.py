@@ -7,7 +7,8 @@ import os
 import json
 import back.file_conversion.file_convert as fc
 from back.api.watson_apis import Translator, ToneAnalysis
-
+#from back.api import stringanalytics as sa
+from back.nl.naturallanguage import text_summary
 # Emit Bluemix deployment event
 cf_deployment_tracker.track()
 
@@ -63,6 +64,14 @@ def fetch_pdf():
         print(fc.getPDFcontent(f.filename))
         return fc.getPDFcontent(f.filename)
 
+@app.route('/textsummary', methods=['POST'])
+def summarize():
+    if request.method == "POST":
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        text = fc.getPDFcontent(f.filename)
+        out = text_summary(text)
+        return out
 
 @app.route('/translate', methods=['POST'])
 def translate():
@@ -88,11 +97,13 @@ def translate():
 @app.route('/tone_analysis', methods=['POST'])
 def tone_analysis():
     if request.method == "POST":
-        pass
-        #f =
-
-
-
+        
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        text = fc.getPDFcontent(f.filename)
+        tone = ToneAnalysis()
+    
+        
 # /* Endpoint to greet and add a new visitor to database.
 # * Send a POST request to localhost:8000/api/visitors with body
 # * {

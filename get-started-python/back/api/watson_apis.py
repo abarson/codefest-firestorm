@@ -37,7 +37,7 @@ class ToneAnalysis():
 
     def analyze_tone(self, utterance):
         json_utterance = [{'text': utterance}]
-        return json.dumps(self.tone_analyzer.tone_chat(json_utterance), indent=2)
+        return self.tone_analyzer.tone_chat(json_utterance)
 
 
 class Translator():
@@ -66,8 +66,11 @@ class VisualRecognition():
     def undefined_functionality(self):
         pass
 
-#translator = Translator()
-#translator.translate('How are you?', 'chinese')
+s = "Hey, how are you doing? My name is Adam. Pleased to meet you."
+toneCheck = ToneAnalysis()
+json = toneCheck.analyze_tone(s)
 
-#toneCheck = ToneAnalysis()
-#toneCheck.analyze_tone(example_sentence)
+text_out = ""
+#for info in json['utterances_tone']:
+    #print(info['tones'])
+
