@@ -2,18 +2,36 @@
 
 body{
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    color: #ffffff !important;
+}
+
+img {
+    height: 100px;
+    width: auto;
+}
+
+#leftImg {
+    position: absolute;
+    top:20px;
+    left: 20px;
+}
+
+#rightImg {
+    position: absolute;
+    top:20px;
+    right: 20px;
 }
 
 #header{
 	text-align: center;
 	width: 100%;
-	font-size: 40pt;
+	font-size: 100pt;
 }
 
 #description{
 	text-align: center;
 	width: 100%;
-	font-size: 20pt;
+	font-size: 30pt;
 }
 
 #content{
@@ -21,6 +39,12 @@ body{
 	clear: both;
 	text-align: center;
 	padding: 20px 0 0 0;
+    color: #850003 !important;
+}
+
+#uploadDescription {
+    width: 30%;
+    margin: 0 auto;
 }
 
 #filetypes{
@@ -30,9 +54,36 @@ body{
 #returnMessage {
     border-style: solid;
     border-width: 2px, 2px, 2px, 2px;
-    width: 500px;
-    height: 200px;
+    width: 564px;
+    height: 202px;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#backgroundTop {
+    #background-image: url("https://hdwallsource.com/img/2016/7/big-library-wallpaper-50365-52056-hd-wallpapers.jpg");
+    background-position: center;
+    background-color: #850003;
+}
+
+#textBox {
+    border-style: solid;
+    border-width: 2px, 2px, 2px, 2px;
+    width: 564px;
+    height: 202px;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: #850003 !important;
+    color: white !important;
+}
+
+.btn:hover {
+    background-color: #b7090d !important;
+}
+
+.btn-danger {
+        background-color: #b7090d !important;
 }
