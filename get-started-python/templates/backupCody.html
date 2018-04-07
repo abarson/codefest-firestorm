@@ -7,8 +7,8 @@
 <title>StudyBuddy</title>
 </head>
 <body>
-  <img id="leftImg" src="https://i.imgur.com/p43SYEp.png">
-  <img id="rightImg" src="https://i.imgur.com/u60yR1X.png">
+  <img id="leftImg" src="IBMLogo.png">
+  <img id="rightImg" src="watsonLogo.png">
   <div id="backgroundTop">
        <div id="header">StudyBuddy</div>
        <div id="description"> A suite of tools for increasing study productivity </div><br>
@@ -31,19 +31,17 @@
   <br>
   <br>
   <h4>Output here:<br></h4>
-  
-    <form action="/translate" method="post">
-        <button name="forwardBtn" type="submit">Translate</button>
-    </form>
-  
   <div class="btn-group btn-group-toggle" data-toggle="buttons" id="navBar">
-    <label class="btn btn-outline-dark">
+    <label class="btn btn-outline-dark" onclick="translateButton()">
+      <input type="radio" name="options" id="option1" autocomplete="off">
+      Translate </label>
+    <label class="btn btn-outline-dark" onclick="toneAnalysisButton()">
       <input type="radio" name="options" id="option2" autocomplete="off">
       Tone Analysis </label>
-    <label class="btn btn-outline-dark">
+    <label class="btn btn-outline-dark" onclick="text2SpeechButton()">
       <input type="radio" name="options" id="option3" autocomplete="off">
       Text2Speech </label>
-    <label class="btn btn-outline-dark">
+    <label class="btn btn-outline-dark" onclick="textSummaryButton()">
       <input type="radio" name="options" id="option4" autocomplete="off">
       Text Summary </label>
   </div>
@@ -84,7 +82,7 @@
 	function upload()
 	{
 		document.getElementById('upload').innerHTML = 
-		"<form action='/api' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br>"
+		"<form action='/api' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload' onclick='reset()'> </form><br>"
 		document.getElementById('uploadButton').innerHTML = ""
 	}
     
@@ -97,7 +95,6 @@
     function translateButton()
     {
         document.getElementById('navBar').innerHTML = "<label class='btn btn-danger' onclick='translateButton()'> <input type='radio' name='options' id='option1' autocomplete='off' checked> Translate </label><label class='btn btn-outline-dark' onclick='toneAnalysisButton()'><input type='radio' name='options' id='option2' autocomplete='off'>Tone Analysis </label><label class='btn btn-outline-dark' onclick='text2SpeechButton()'><input type='radio' name='options' id='option3' autocomplete='off'> Text2Speech </label><label class='btn btn-outline-dark' onclick='textSummaryButton()'><input type='radio' name='options' id='option4' autocomplete='off'>Text Summary </label>"
-	"<form action='/translate' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br>"
     }
     
     function toneAnalysisButton()
