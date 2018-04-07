@@ -67,6 +67,13 @@ def length_dist_plot(string, filename):
     plt.xlabel("Length")
     plt.ylabel("Count")
     plt.bar(l,nl)
-    plt.show()
+    plt.savefig(filename)
 
-length_dist_plot(test)
+def length_freq_plot(string,filename):
+    l, oc = length_x_freq(string)
+    plt.title("Word Length by Frequency")
+    plt.xlabel("Length")
+    plt.ylabel("Frequency")
+    plt.scatter(l,oc)
+    plt.savefig(filename)
+    
