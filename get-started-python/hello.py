@@ -1,5 +1,6 @@
 from cloudant import Cloudant
 from flask import Flask, render_template, request, jsonify
+from werkzeug.utils import secure_filename
 import atexit
 import cf_deployment_tracker
 import os
@@ -42,6 +43,23 @@ port = int(os.getenv('PORT', 8000))
 @app.route('/')
 def home():
     return render_template('index.html')
+
+
+@app.route('/speechtotext', methods=['POST'])
+def s2t():
+    return render_template('s2t.html')
+
+@app.route('/pdftotext')
+def pdf2t():
+    return render_template('pdf2text.html')
+
+@app.route('/api', methods=['POST'])
+def fetch_pdf():
+    if request.method == 'POST':
+        f = request.files['pdf']
+        f.save(secure_filename(f.filename))
+        print('Hey you butt')
+        return "success"
 
 # /* Endpoint to greet and add a new visitor to database.
 # * Send a POST request to localhost:8000/api/visitors with body
