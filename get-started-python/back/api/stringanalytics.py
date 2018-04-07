@@ -9,7 +9,7 @@ Created on Sat Apr  7 17:08:46 2018
 from collections import Counter
 import numpy as np
 import matplotlib.pyplot as plt
-
+from watson_apis 
 test = "By leveraging the power of IBM’s Watson, Study Buddy is a suite of tools for increasing study productivity. The main tools we provide are" 
 
 def n_words(string):
@@ -58,22 +58,29 @@ def length_x_freq(string):
     words = [w for w in freqs]
     lengths = [len(w) for w in words]
     occurrences = [freqs[w] for w in words]
-    return lengths,occurrences
+    return lengths, occurrences
     
     
-def length_dist_plot(string, filename):
+def length_dist_plot(string):
     l, nl = length_dist(string)
     plt.title("Word Length Distribution")
     plt.xlabel("Length")
     plt.ylabel("Count")
-    plt.bar(l,nl)
-    plt.savefig(filename)
+    plt.bar(l, nl)
+    plt.savefig("len_dist_plot.png")
 
-def length_freq_plot(string,filename):
+def length_freq_plot(string):
     l, oc = length_x_freq(string)
     plt.title("Word Length by Frequency")
     plt.xlabel("Length")
     plt.ylabel("Frequency")
-    plt.scatter(l,oc)
-    plt.savefig(filename)
+    plt.scatter(l, oc)
+    plt.savefig("len_freq_plot.png")
+
+
+def natural_lang_understanding(string):
+    """
+    the natural language understanding stats of the text
+    """
+
     
