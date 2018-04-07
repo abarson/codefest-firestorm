@@ -16,7 +16,7 @@ body{
 	font-size: 20pt;
 }
 
-#buttons{
+#content{
 	display: block;
 	clear: both;
 	text-align: center;
@@ -25,4 +25,14 @@ body{
 
 #filetypes{
 	font-size: 10pt;
+}
+
+#returnMessage {
+    border-style: solid;
+    border-width: 2px, 2px, 2px, 2px;
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
