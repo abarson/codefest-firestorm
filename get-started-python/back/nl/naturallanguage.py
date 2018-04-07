@@ -6,3 +6,5 @@ Created on Sat Apr  7 09:23:37 2018
 @author: eligitelman
 """
 
+import nltk
+
