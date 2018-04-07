@@ -62,17 +62,8 @@ img {
 }
 
 #backgroundTop {
-    /*background-image: url("https://hdwallsource.com/img/2016/7/big-library-wallpaper-50365-52056-hd-wallpapers.jpg");*/
     background-position: center;
     background-color: #850003;
-}
-
-#textBox {
-    border-style: solid;
-    border-width: 2px, 2px, 2px, 2px;
-    width: 564px;
-    height: 202px;
-    margin: 0 auto;
 }
 
 .btn {
@@ -85,5 +76,5 @@ img {
 }
 
 .btn-danger {
-        background-color: #b7090d !important;
+    background-color: #b7090d !important;
 }
