@@ -127,9 +127,9 @@ def natural_lang_understanding(string):
     anger_str = "Average Anger : %0.2f" % avg_anger / len(kw)
     fear_str = "Average Fear : %0.2f" % avg_fear / len(kw)
     
-    highest_relevance = 
-    return avg_sadness / len(kw), avg_joy / len(kw), avg_fear / len(kw), avg_disgust / len(kw), avg_anger / len(kw), highest_relevance, most_relevant_k
-           
+    highest_relevance = "Most Relevant Word : %s" % most_relevant_k 
+    
+    return "\n".join([most_relevant_k, sad_str, joy_str, disgust_str, fear_str, anger_str])
 
 def analytics(string):
     return n_words(string), avg_length(string), most_common(string), n_unique_words(string)
