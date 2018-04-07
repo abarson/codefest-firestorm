@@ -5,6 +5,8 @@ import atexit
 import cf_deployment_tracker
 import os
 import json
+import back.file_conversion.file_convert as fc
+
 
 # Emit Bluemix deployment event
 cf_deployment_tracker.track()
@@ -58,8 +60,8 @@ def fetch_pdf():
     if request.method == 'POST':
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        print('Hey you butt')
-        return "success"
+        print(fc.getPDFcontent(f.filename))
+        return fc.getPDFcontent(f.filename)
 
 # /* Endpoint to greet and add a new visitor to database.
 # * Send a POST request to localhost:8000/api/visitors with body
