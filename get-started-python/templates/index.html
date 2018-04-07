@@ -7,32 +7,62 @@
 <title>StudyBuddy</title>
 </head>
 <body>
-	<div id="header">
-		StudyBuddy
-	</div>
-	<div id="description">
-		Enter description here...
-	</div>
-	<div id="buttons">
-		Upload description here.<br>
-		<div id="uploadButton">
-			<button type="button" class="btn btn-outline-dark" onclick="upload()">Upload</button>
-		</div>
-		<div id="upload"></div>
-		<div id="filetypes">(.png, .jpg, .pdf, .docx, .txt, .wav, .mp3)</div><br>
-		Text box description here.<br>
-		<textarea cols="75" rows="10"></textarea><br>
-		<button type="button" class="btn btn-outline-dark">Record Speech</button>
-		<button type="button" class="btn btn-outline-dark">Submit</button><br><br>
-	</div>
+<div id="header"> StudyBuddy </div>
+<div id="description"> Enter description here... </div>
+<div id="buttons"> Upload description here.<br>
+  <div id="uploadButton">
+    <button type="button" class="btn btn-outline-dark" onclick="upload()">Upload</button>
+  </div>
+  <div id="upload"></div>
+  <div id="filetypes">(.png, .jpg, .pdf, .docx, .txt, .wav, .mp3)</div>
+  <br>
+  Text box description here.<br>
+  <textarea cols="75" rows="10"></textarea>
+  <br>
+  <button type="button" class="btn btn-outline-dark">Record Speech</button>
+  <button type="button" class="btn btn-outline-dark">Submit</button>
+  <br>
+  <br>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons" id="navBar">
+    <label class="btn btn-outline-dark" onclick="translateButton()">
+      <input type="radio" name="options" id="option1" autocomplete="off">
+      Translate </label>
+    <label class="btn btn-outline-dark" onclick="toneAnalysisButton()">
+      <input type="radio" name="options" id="option2" autocomplete="off">
+      Tone Analysis </label>
+    <label class="btn btn-outline-dark" onclick="text2SpeechButton()">
+      <input type="radio" name="options" id="option3" autocomplete="off">
+      Text2Speech </label>
+    <label class="btn btn-outline-dark" onclick="textSummaryButton()">
+      <input type="radio" name="options" id="option4" autocomplete="off">
+      Text Summary </label>
+  </div>
+</div>
 </body>
 </html>
-
 <script>
 	function upload()
 	{
 		document.getElementById('upload').innerHTML = 
-		"<form action='server.cgi' method='post' enctype='multipart/form-data'> <input type='file' name='audio' capture> <input type='submit' value='Upload'> </form>"
+		"<form action='/api' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form>"
 		document.getElementById('uploadButton').innerHTML = ""
 	}
+    
+    function translateButton()
+    {
+        document.getElementById('navBar').innerHTML = "<label class='btn btn-secondary active' onclick='translateButton()'> <input type='radio' name='options' id='option1' autocomplete='off' checked> Translate </label><label class='btn btn-outline-dark' onclick='toneAnalysisButton()'><input type='radio' name='options' id='option2' autocomplete='off'>Tone Analysis </label><label class='btn btn-outline-dark' onclick='text2SpeechButton()'><input type='radio' name='options' id='option3' autocomplete='off'> Text2Speech </label><label class='btn btn-outline-dark' onclick='textSummaryButton()'><input type='radio' name='options' id='option4' autocomplete='off'>Text Summary </label>"
+    }
+    
+    function toneAnalysisButton()
+    {
+        document.getElementById('navBar').innerHTML = "<label class='btn btn-outline-dark' onclick='translateButton()'> <input type='radio' name='options' id='option1' autocomplete='off'> Translate </label><label class='btn btn-secondary active' onclick='toneAnalysisButton()'><input type='radio' name='options' id='option2' autocomplete='off' checked>Tone Analysis </label><label class='btn btn-outline-dark' onclick='text2SpeechButton()'><input type='radio' name='options' id='option3' autocomplete='off'> Text2Speech </label><label class='btn btn-outline-dark' onclick='textSummaryButton()'><input type='radio' name='options' id='option4' autocomplete='off'>Text Summary </label>"
+    }
+    function text2SpeechButton()
+    {
+        document.getElementById('navBar').innerHTML = "<label class='btn btn-outline-dark' onclick='translateButton()'> <input type='radio' name='options' id='option1' autocomplete='off'> Translate </label><label class='btn btn-outline-dark' onclick='toneAnalysisButton()'><input type='radio' name='options' id='option2' autocomplete='off'>Tone Analysis </label><label class='btn btn-secondary active' onclick='text2SpeechButton()'><input type='radio' name='options' id='option3' autocomplete='off' checked> Text2Speech </label><label class='btn btn-outline-dark' onclick='textSummaryButton()'><input type='radio' name='options' id='option4' autocomplete='off'>Text Summary </label>"
+    }
+    function textSummaryButton()
+    {
+        document.getElementById('navBar').innerHTML = "<label class='btn btn-outline-dark' onclick='translateButton()'> <input type='radio' name='options' id='option1' autocomplete='off'> Translate </label><label class='btn btn-outline-dark' onclick='toneAnalysisButton()'><input type='radio' name='options' id='option2' autocomplete='off'>Tone Analysis </label><label class='btn btn-outline-dark' onclick='text2SpeechButton()'><input type='radio' name='options' id='option3' autocomplete='off'> Text2Speech </label><label class='btn btn-secondary active' onclick='textSummaryButton()'><input type='radio' name='options' id='option4' autocomplete='off' checked>Text Summary </label>"
+    }
 </script>
