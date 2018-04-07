@@ -11,23 +11,28 @@
     function text2Speech()
     {
         document.getElementById('upload').innerHTML = "<br><form action='/text2speech' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Text2Speech'> </form><br>"
-        //document.getElementById('uploadButton').innerHTML = ""
+        document.getElementById('uploadButton').innerHTML = 
+        "<button type='button' class='btn btn-danger' onclick='text2Speech()'>Text2Speech</button> <button type='button' class='btn btn-outline-dark' onclick='toneAnalysis()'>Tone Analysis</button> <button type='button' class='btn btn-outline-dark' onclick='textSummarization()'>Text Summarization</button> <button type='button' class='btn btn-outline-dark' onclick='translateButton()'>Translate</button>"
     }
     
     function toneAnalysis() 
     {
         document.getElementById('upload').innerHTML = "<br><form action='/toneanalysis' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Tone Analysis'> </form><br>"
-        //document.getElementById('uploadButton').innerHTML = ""
+        document.getElementById('uploadButton').innerHTML =
+        "<button type='button' class='btn btn-outline-dark' onclick='text2Speech()'>Text2Speech</button> <button type='button' class='btn btn-danger' onclick='toneAnalysis()'>Tone Analysis</button> <button type='button' class='btn btn-outline-dark' onclick='textSummarization()'>Text Summarization</button> <button type='button' class='btn btn-outline-dark' onclick='translateButton()'>Translate</button>"
     }
     function textSummarization() 
     {
         document.getElementById('upload').innerHTML = "<br><form action='/textsummary' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Text Summary'> </form><br>"
-        //document.getElementById('uploadButton').innerHTML = ""
+        document.getElementById('uploadButton').innerHTML =
+        "<button type='button' class='btn btn-outline-dark' onclick='text2Speech()'>Text2Speech</button> <button type='button' class='btn btn-outline-dark' onclick='toneAnalysis()'>Tone Analysis</button> <button type='button' class='btn btn-danger' onclick='textSummarization()'>Text Summarization</button> <button type='button' class='btn btn-outline-dark' onclick='translateButton()'>Translate</button>"
+        
     }
     function translateButton() 
     {
         document.getElementById('upload').innerHTML = "<br><form action='/translate' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Translate'> </form><br>"
-        //document.getElementById('uploadButton').innerHTML = ""
+        document.getElementById('uploadButton').innerHTML =
+        "<button type='button' class='btn btn-outline-dark' onclick='text2Speech()'>Text2Speech</button> <button type='button' class='btn btn-outline-dark' onclick='toneAnalysis()'>Tone Analysis</button> <button type='button' class='btn btn-outline-dark' onclick='textSummarization()'>Text Summarization</button> <button type='button' class='btn btn-danger' onclick='translateButton()'>Translate</button>"
     }
 </script>
 
@@ -40,18 +45,17 @@
        <div id="description"> A suite of tools for increasing study productivity </div><br>
   </div>
   <div id="content">
-  <div id="uploadDescription">Select a file to upload to either translate, perform tone analysis, use text to speech, or create a text summary.</div>
+  <div id="uploadDescription">Select which function you would like to use below:</div>
+  <div id="uploadButton">
     <button type="button" class="btn btn-outline-dark" onclick="text2Speech()">Text2Speech</button>
     <button type="button" class="btn btn-outline-dark" onclick="toneAnalysis()">Tone Analysis</button>
     <button type="button" class="btn btn-outline-dark" onclick="textSummarization()">Text Summarization</button>
     <button type="button" class="btn btn-outline-dark" onclick="translateButton()">Translate</button>
+  </div>
   <div id="upload"></div>
-  <div id="filetypes">(.png, .jpg, .pdf, .docx, .txt, .wav, .mp3)</div>
   <br>
   Or enter text here.<br>
-  <div id="textBox">
-    <textarea cols="75" rows="8"></textarea>
-  </div>
+  <textarea cols="75" rows="8"></textarea>
   <br>
   <button type="button" class="btn btn-outline-dark">Record Speech</button>
   <button type="button" class="btn btn-outline-dark">Submit</button>
