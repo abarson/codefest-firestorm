@@ -77,7 +77,7 @@ def translate():
         pass
 
 
-@app.route('tone_analysis', methods=['POST'])
+@app.route('/tone_analysis', methods=['POST'])
 def tone_analysis():
     if request.method == "POST":
         pass
