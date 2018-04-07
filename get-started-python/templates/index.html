@@ -6,7 +6,6 @@
 <meta charset="utf-8">
 <title>StudyBuddy</title>
 </head>
-
 <body>
 	<div id="header">
 		StudyBuddy
@@ -15,13 +14,25 @@
 		Enter description here...
 	</div>
 	<div id="buttons">
-		Speech2Text description here.<br>
-		<button type="button" class="btn btn-outline-dark">Speech2Text</button><br><br>
 		Upload description here.<br>
-		<button type="button" class="btn btn-outline-dark">Upload</button><br><br>
+		<div id="uploadButton">
+			<button type="button" class="btn btn-outline-dark" onclick="upload()">Upload</button>
+		</div>
+		<div id="upload"></div>
+		<div id="filetypes">(.png, .jpg, .pdf, .docx, .txt, .wav, .mp3)</div><br>
 		Text box description here.<br>
 		<textarea cols="75" rows="10"></textarea><br>
+		<button type="button" class="btn btn-outline-dark">Record Speech</button>
 		<button type="button" class="btn btn-outline-dark">Submit</button><br><br>
 	</div>
 </body>
 </html>
+
+<script>
+	function upload()
+	{
+		document.getElementById('upload').innerHTML = 
+		"<form action='server.cgi' method='post' enctype='multipart/form-data'> <input type='file' name='audio' accept='audio/*' capture> <input type='submit' value='Upload'> </form>"
+		document.getElementById('uploadButton').innerHTML = ""
+	}
+</script>
