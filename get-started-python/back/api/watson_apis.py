@@ -26,8 +26,9 @@ class ToneAnalysis():
 
 class Translator():
     def __init__(self):
-        self.languages = {"English": "en", "French": "fr", "Chinese": "zh", "Arabic": "ar",
-                          "Dutch": "nl", "German": "de", "Italian": "it"}
+        self.languages = {"English": "en", "French": "fr", "Arabic": "ar",
+                          "German": "de", "Italian": "it", "Japanese": "ja",
+                           "Korean": "ko", "Portuguese": "pt", "Spanish": "es"}
         self.url = "https://gateway.watsonplatform.net/language-translator/api"
         self.username = "e01c0489-3c59-4d94-a61b-75335f768528"
         self.password = "5EX02KFSpIOP"
