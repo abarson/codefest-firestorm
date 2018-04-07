@@ -1,14 +1,19 @@
 from watson_developer_cloud import ToneAnalyzerV3, LanguageTranslatorV2, VisualRecognitionV3
-from watson_developer_cloud import natural_language_understanding_v1 as nlv1
-
+from watson_developer_cloud import NaturalLanguagUnderstandingV1
+from watson_developer_cloud.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions
 
 import json
 
 
 class NaturalLanguagUnderstanding():
     def __init__(self):
-        pass
-
+        self.username = "a231076a-503e-4b98-a0bd-5f99637c240f"
+        self.password = "ROksYqn7v48H"
+        self.url = "https://gateway.watsonplatform.net/natural-language-understanding/api"
+        
+        self.nlu = NaturalLanguagUnderstandingV1(username=self.username, 
+                                                 password=self.password, 
+                                                 version='2018-03-16')
 
 class ToneAnalysis():
     def __init__(self):
