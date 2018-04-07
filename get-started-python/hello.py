@@ -56,7 +56,7 @@ def pdf2t():
 @app.route('/api', methods=['POST'])
 def fetch_pdf():
     if request.method == 'POST':
-        f = request.files['pdf']
+        f = request.files['file']
         f.save(secure_filename(f.filename))
         print('Hey you butt')
         return "success"
