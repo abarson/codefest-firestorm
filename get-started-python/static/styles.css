@@ -1,7 +1,24 @@
 /* CSS Document */
 
-nav {
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
+body{
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+}
+
+#header{
+	text-align: center;
+	width: 100%;
+	font-size: 40pt;
+}
+
+#description{
+	text-align: center;
+	width: 100%;
+	font-size: 20pt;
+}
+
+#buttons{
+	display: block;
+	clear: both;
+	text-align: center;
+	padding: 20px 0 0 0;
 }
