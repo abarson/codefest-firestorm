@@ -33,7 +33,7 @@
   <h4>Output here:<br></h4>
   
     <form action="/translate" method="post">
-        <button name="forwardBtn" type="submit">Translate</button>
+        <button name="file" type="submit">Translate</button>
     </form>
   
   <div class="btn-group btn-group-toggle" data-toggle="buttons" id="navBar">
@@ -84,7 +84,7 @@
 	function upload()
 	{
 		document.getElementById('upload').innerHTML = 
-		"<form action='/api' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br>"
+		"<form action='/api' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br> <form action='/translate' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Translate'> </form><br>"
 		document.getElementById('uploadButton').innerHTML = ""
 	}
     
