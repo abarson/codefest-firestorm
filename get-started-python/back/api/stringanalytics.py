@@ -9,7 +9,9 @@ Created on Sat Apr  7 17:08:46 2018
 from collections import Counter
 import numpy as np
 import matplotlib.pyplot as plt
-from watson_apis 
+from watson_apis import NaturalLanguageUnderstanding  
+import json
+
 test = "By leveraging the power of IBM’s Watson, Study Buddy is a suite of tools for increasing study productivity. The main tools we provide are" 
 
 def n_words(string):
@@ -32,7 +34,7 @@ def length_dist(string):
     words = string.split(" ")
     unique_lengths = sorted(list(set([len(word)for word in words])))
     
-    L2cts = {L:0 for L in unique_lengths}
+    L2cts = {L: 0 for L in unique_lengths}
     
     for word in words:
         L2cts[len(word)] += 1
@@ -40,6 +42,8 @@ def length_dist(string):
     counts = [L2cts[L] for L in unique_lengths]
     
     return unique_lengths, counts
+
+
 def avg_length(string):
     words = string.split(" ")
     count = [len(word)for word in words]
@@ -83,4 +87,11 @@ def natural_lang_understanding(string):
     the natural language understanding stats of the text
     """
 
-    
+    nlu = NaturalLanguageUnderstanding()
+    jdump = nlu.analyze_nl(string)
+
+    print(jdump)
+
+
+
+natural_lang_understanding(test)
