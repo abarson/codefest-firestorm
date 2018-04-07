@@ -1,3 +1,6 @@
+import sys
+import pyPdf
+
 def get_filetype(filename):
     """
     return the file extension of a filename
@@ -14,6 +17,9 @@ def get_filetype(filename):
 
     #if filename.endswith("
 
+
+
 def convert(filename):
     ft = get_filetype(filename)
-
+    
+    pass
