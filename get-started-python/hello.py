@@ -6,7 +6,7 @@ import cf_deployment_tracker
 import os
 import json
 import back.file_conversion.file_convert as fc
-
+from back.api.watson_apis import Translator, ToneAnalysis
 
 # Emit Bluemix deployment event
 cf_deployment_tracker.track()
@@ -63,6 +63,25 @@ def fetch_pdf():
         print(fc.getPDFcontent(f.filename))
         return fc.getPDFcontent(f.filename)
 
+
+@app.route('translate', methods=['POST'])
+def translate():
+    if request.method == "POST":
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        text = fc.getPDFcontent(f.filename)
+        translator = Translator()
+        json = translator.translate(text, 'es')
+        return json['translations'][0]['translation']
+
+        pass
+
+
+@app.route('tone_analysis', methods=['POST'])
+def tone_analysis():
+    if request.method == "POST":
+        pass
+        #f =
 
 @app.route('/api', methods=['POST'])
 #def fetch
