@@ -11,17 +11,18 @@ class NaturalLanguagUnderstanding():
         self.password = "ROksYqn7v48H"
         self.url = "https://gateway.watsonplatform.net/natural-language-understanding/api"
         
-        self.nlu = NaturalLanguagUnderstandingV1(username=self.username, 
-                                                 password=self.password, 
-                                                 version='2018-03-16')
+        self.nlu = NaturalLanguageUnderstandingV1(username=self.username, 
+                                                  password=self.password, 
+                                                  version='2018-03-16')
     
     def analyze_nl(self, text):
+        L = len(text.split(" "))
         response = self.nlu.analyze(text=text,
                                     features=Features(entities=EntitiesOptions(emotion=True, 
                                                                                sentiment=True, 
-                                                                               limit=2),
+                                                                               limit=L),
                                                       keywords=KeywordsOptions(emotion=True, sentiment=True,
-                                                                               limit=2)))
+                                                                               limit=L)))
 
         return json.dumps(response, indent=2)
 
@@ -70,4 +71,3 @@ class VisualRecognition():
 
 #toneCheck = ToneAnalysis()
 #toneCheck.analyze_tone(example_sentence)
-
