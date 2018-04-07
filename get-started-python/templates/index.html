@@ -97,6 +97,7 @@
     function translateButton()
     {
         document.getElementById('navBar').innerHTML = "<label class='btn btn-danger' onclick='translateButton()'> <input type='radio' name='options' id='option1' autocomplete='off' checked> Translate </label><label class='btn btn-outline-dark' onclick='toneAnalysisButton()'><input type='radio' name='options' id='option2' autocomplete='off'>Tone Analysis </label><label class='btn btn-outline-dark' onclick='text2SpeechButton()'><input type='radio' name='options' id='option3' autocomplete='off'> Text2Speech </label><label class='btn btn-outline-dark' onclick='textSummaryButton()'><input type='radio' name='options' id='option4' autocomplete='off'>Text Summary </label>"
+	"<form action='/translate' method='post' enctype='multipart/form-data'> <input type='file' name='file' capture> <input type='submit' value='Upload'> </form><br>"
     }
     
     function toneAnalysisButton()
