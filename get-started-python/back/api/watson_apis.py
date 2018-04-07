@@ -1,5 +1,5 @@
 from watson_developer_cloud import ToneAnalyzerV3, LanguageTranslatorV2, VisualRecognitionV3
-from watson_developer_cloud import NaturalLanguagUnderstandingV1
+from watson_developer_cloud import NaturalLanguageUnderstandingV1
 from watson_developer_cloud.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions
 
 import json
@@ -14,6 +14,16 @@ class NaturalLanguagUnderstanding():
         self.nlu = NaturalLanguagUnderstandingV1(username=self.username, 
                                                  password=self.password, 
                                                  version='2018-03-16')
+    
+    def analyze_nl(self, text):
+        response = self.nlu.analyze(text=text,
+                                    features=Features(entities=EntitiesOptions(emotion=True, 
+                                                                               sentiment=True, 
+                                                                               limit=2),
+                                                      keywords=KeywordsOptions(emotion=True, sentiment=True,
+                                                                               limit=2)))
+
+        return json.dumps(response, indent=2)
 
 class ToneAnalysis():
     def __init__(self):
@@ -60,5 +70,4 @@ class VisualRecognition():
 
 #toneCheck = ToneAnalysis()
 #toneCheck.analyze_tone(example_sentence)
-
 
