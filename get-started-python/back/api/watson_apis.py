@@ -1,4 +1,4 @@
-from watson_developer_cloud import ToneAnalyzerV3, LanguageTranslatorV2
+from watson_developer_cloud import ToneAnalyzerV3, LanguageTranslatorV2, VisualRecognitionV3
 import json
 
 class ToneAnalysis():
@@ -34,8 +34,19 @@ class Translator():
         print(self.language_translator.translate(text, source='en', target='es'))
 
 
-translator = Translator()
-translator.translate('How are you?', 'chinese')
+class VisualRecognition():
+    def __init__(self):
+        self.url = "https://gateway-a.watsonplatform.net/visual-recognition/api"
+        self.note = "It may take up to 5 minutes for this key to become active"
+        self.api_key = "bbe846d049b62bb116e525f0ad3c6b2989d99613"
+        visual_recognition = VisualRecognitionV3('2016-05-20', api_key=self.api_key)
+    
+    def undefined_functionality(self):
+        pass
+
+#translator = Translator()
+#translator.translate('How are you?', 'chinese')
+
 #toneCheck = ToneAnalysis()
 #example_sentence = "Why is A.G. Jeff Sessions asking the Inspector General to investigate potentially massive FISA abuse. Will take forever, has no prosecutorial power and already late with reports on Comey etc. Isn’t the I.G. an Obama guy? Why not use Justice Department lawyers? DISGRACEFUL!"
 #toneCheck.analyze_tone(example_sentence)
