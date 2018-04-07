@@ -60,8 +60,8 @@ def fetch_pdf():
     if request.method == 'POST':
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        print(fc.getPDFcontent(f.filename))
-        return fc.getPDFcontent(f.filename)
+        print(fc.convert(f.filename))
+        return "hello"#fc.convert(f.filename)
 
 # /* Endpoint to greet and add a new visitor to database.
 # * Send a POST request to localhost:8000/api/visitors with body
