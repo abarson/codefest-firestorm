@@ -63,11 +63,6 @@ def fetch_pdf():
         print(fc.getPDFcontent(f.filename))
         return fc.getPDFcontent(f.filename)
 
-
-@app.route('/api', methods=['POST'])
-#def fetch
-
-
 # /* Endpoint to greet and add a new visitor to database.
 # * Send a POST request to localhost:8000/api/visitors with body
 # * {

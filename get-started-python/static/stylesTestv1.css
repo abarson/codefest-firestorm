@@ -1,0 +1,30 @@
+/* CSS Document */
+
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
+
+body{
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+}
+
+#header{
+	text-align: center;
+	width: 100%;
+	font-size: 40pt;
+}
+
+#description{
+	text-align: center;
+	width: 100%;
+	font-size: 20pt;
+}
+
+#buttons{
+	display: block;
+	clear: both;
+	text-align: center;
+	padding: 20px 0 0 0;
+}
+
+#filetypes{
+	font-size: 10pt;
+}

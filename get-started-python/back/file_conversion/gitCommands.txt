@@ -1,0 +1,8 @@
+Push:
+git add index.html
+git commit -m "message here"
+gut push origin master
+
+Pull:
+git pull origin master
+
