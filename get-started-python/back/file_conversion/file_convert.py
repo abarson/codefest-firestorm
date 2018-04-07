@@ -1,8 +1,9 @@
 import sys
 import PyPDF2 as pyPdf
 import docx
-
-# import pdf
+import pytesseract
+import os
+from PIL import Image
 
 
 def get_filetype(filename):
@@ -54,11 +55,34 @@ def getDOCXcontent(path):
     return "\n".join(fullText)
 
 
+def getPNGcontent(path):
+    """
+    convert a png to plain text using pytesseract ocr model
+    """
+    
+    tess_path = get_tesseract_path()
+    
+    pytesseract.pytesseract.tesseract_cmd = tess_path
+    return pytesseract.image_to_string(Image.open(path), lang="eng")
+
+
+def get_tesseract_path():
+    platforms = {"linux1": "Linux",
+                 "linux2": "Linux",
+                 "darwin": "OS X"}
+    
+    exes = {"Linux": "models/tesseract_linux", "OS X": "models/tesseract_osx"}
+    
+    if sys.platform in platforms:
+        return exes[platforms[sys.platform]]
+
+
 def convert(filename):
     ft = get_filetype(filename)
     
     no_extension = filename.split(".")[0]
-    
+
+    os.environ['TESSDATA_PREFIX'] = 'models/' 
     with open(no_extension + ".txt", "w+") as f:
         if ft == "pdf":
             f.write(getPDFcontent(filename)) 
@@ -68,6 +92,10 @@ def convert(filename):
         elif ft == "docx":
             f.write(getDOCXcontent(filename))
         
+        elif ft == "png":
+            
+            f.write(getPNGcontent(filename))
+
 
 if __name__ == "__main__":
     p = "daniel_berenberg_224_hw7.pdf"
@@ -75,3 +103,6 @@ if __name__ == "__main__":
 
     d = "Week2.docx"
     convert(d)
+
+    pg = "img.png"
+    convert(pg)

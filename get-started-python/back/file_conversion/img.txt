@@ -1,0 +1,27 @@
+try:
+
+import Image
+
+except ImportError:
+from PIL import Image
+import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = '<fuII_path_to_your_tesseract_executable>'
+# Include the above line, if you don't have tesseract executable in your PATH
+# Example tesseract_cmd: 'C:\\Program Files (x86)\\Tesseract—OCR\\tesseract'
+
+# Simple image to string
+print(pytesseract.image_to_string(|mage.open('test.png')))
+
+# French text image to string
+print(pytesseract.image_to_string(|mage.open('test—european.jpg'), Iang='fra'))
+
+# Get bounding box estimates
+print(pytesseract.image_to_boxes(|mage.open(‘test.png‘)))
+
+# Get verbose data including boxes, conﬂdences, line and page numbers
+print(pytesseract.image_to_data(|mage.open(‘test.png')))
+
+Support for OpenCV image/NumPy array objects
+
+.. code—blockzz python
